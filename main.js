@@ -4,7 +4,22 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const hearts = document.getElementsByClassName("like-glyph");
 
+for (element of hearts) {
+  element.addEventListener('click', (e) => {
+    debugger;
+    mimicServerCall()
+    .then(data => {
+      if (e.target.innerHTML === EMPTY_HEART) {
+        e.target.innerHTML = FULL_HEART;
+      } else {
+        e.target.innerHTML = EMPTY_HEART;
+      }
+    })
+    .catch((error) => {console.log(error)})
+  })
+}
 
 
 //------------------------------------------------------------------------------
